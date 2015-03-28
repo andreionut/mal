@@ -12,7 +12,7 @@ PYTHON = python
 
 IMPLS = bash c clojure coffee cpp cs forth go haskell java js lua make mal \
 	ocaml matlab miniMAL nim perl php ps python r racket ruby rust \
-	scala swift vb
+	scala swift vb erlang
 
 step0 = step0_repl
 step1 = step1_read_print
@@ -80,6 +80,7 @@ rust_STEP_TO_PROG =    rust/target/release/$($(1))
 scala_STEP_TO_PROG =   scala/$($(1)).scala
 swift_STEP_TO_PROG =   swift/$($(1))
 vb_STEP_TO_PROG =      vb/$($(1)).exe
+erlang_STEP_TO_PROG =  erlang/$($(1)).erl
 
 # Needed some argument munging
 COMMA = ,
@@ -116,6 +117,7 @@ rust_RUNSTEP =    ../$(2) $(3)
 scala_RUNSTEP =   sbt 'run-main $($(1))$(if $(3), $(3),)'
 swift_RUNSTEP =   ../$(2) $(3)
 vb_RUNSTEP =      mono ../$(2) --raw $(3)
+erlang_RUNSTEP =  ../$(2)
 
 # Extra options to pass to runtest.py
 mal_TEST_OPTS = --start-timeout 60 --test-timeout 120
