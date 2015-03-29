@@ -4,8 +4,11 @@
 
 main(_) ->
   io:fwrite("~s", ["user> "]),
-  print(eval(read(read_line()))),
+  rep(read_line()),
   main([]).
+
+rep(Input) ->
+  print(eval(read(Input))).
 
 read(Input) ->
   Input.
